@@ -31,9 +31,20 @@ func isBalanced(s: String) -> String {
     }
     print(d)
     
-     
+    let red = d.reduce(0) { r, i in
+        r + i
+    }
+    guard red == 0 else {
+        return "NO"
+    }
+    for i in 0..<d.count {
+        if d[i] < 0 && d[i] + d[i - 1] >= 1 {
+            print(d[i])
+            return "NO"
+        }
+    }
     return "YES"
 }
 
-print(isBalanced(s: "{[()]}"))
+print(isBalanced(s: "{{)[](}}"))
 
