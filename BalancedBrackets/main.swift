@@ -38,7 +38,7 @@ func isBalanced(s: String) -> String {
         return "NO"
     }
     for i in 0..<d.count {
-        if d[i] < 0 && d[i] + d[i - 1] >= 1 {
+        if d[i] < 0 && d[i - 1] > 0 && abs(abs(d[i]) - abs(d[i - 1])) > 0 {
             print(d[i])
             return "NO"
         }
